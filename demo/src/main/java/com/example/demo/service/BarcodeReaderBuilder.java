@@ -5,6 +5,7 @@ import org.springframework.stereotype.Component;
 
 import com.dynamsoft.dbr.BarcodeReader;
 import com.dynamsoft.dbr.BarcodeReaderException;
+import com.dynamsoft.dbr.DMDLSConnectionParameters;
 import com.dynamsoft.dbr.DMLTSConnectionParameters;
 import com.dynamsoft.dbr.EnumBarcodeFormat;
 import com.dynamsoft.dbr.EnumConflictMode;
@@ -26,9 +27,9 @@ public class BarcodeReaderBuilder {
 
 		try {
 			barcodeReader = new BarcodeReader("");
-			DMLTSConnectionParameters ltspar = barcodeReader.initLTSConnectionParameters();
+			DMDLSConnectionParameters ltspar = barcodeReader.initDLSConnectionParameters();
 			ltspar.handshakeCode = handShakeCode;
-			barcodeReader.initLicenseFromLTS(ltspar);
+			barcodeReader.initLicenseFromDLS(ltspar);
 			barcodeReader.initRuntimeSettingsWithString(
 					"{\"ImageParameter\":{\"Name\":\"BestCoverage\",\"DeblurLevel\":9,\"ExpectedBarcodesCount\":512,\"ScaleDownThreshold\":100000,\"LocalizationModes\":[{\"Mode\":\"LM_CONNECTED_BLOCKS\"},{\"Mode\":\"LM_SCAN_DIRECTLY\"},{\"Mode\":\"LM_STATISTICS\"},{\"Mode\":\"LM_LINES\"},{\"Mode\":\"LM_STATISTICS_MARKS\"}],\"GrayscaleTransformationModes\":[{\"Mode\":\"GTM_ORIGINAL\"},{\"Mode\":\"GTM_INVERTED\"}]}}",
 					EnumConflictMode.CM_OVERWRITE);

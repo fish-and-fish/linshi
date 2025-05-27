@@ -21,9 +21,13 @@ public class BarcodeReaderBuilder {
 		return handShakeCode;
 	}
 
+	public BarcodeReader barcodeReader = null;
+
 	public BarcodeReader getInstance() {
 
-		BarcodeReader barcodeReader = null;
+		if (barcodeReader != null) {
+			return barcodeReader;
+		}
 
 		try {
 			barcodeReader = new BarcodeReader("");

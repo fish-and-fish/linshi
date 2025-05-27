@@ -1,0 +1,1 @@
+scp /Users/linglong/Documents/code/linshi/demo/target/demo-0.0.1-SNAPSHOT.jar  root@47.90.244.18:/root/decode
